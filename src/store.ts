@@ -32,7 +32,7 @@ function updateItemsAndPriorities (state: State) {
   items.sort((a, b) => a.priority - b.priority)
 
   const unusedPriorities: number[] = []
-  let lastPriority = 1;
+  let lastPriority = 1
   items.forEach((item) => {
     while (lastPriority < item.priority) {
       unusedPriorities.push(lastPriority)

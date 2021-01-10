@@ -1,5 +1,9 @@
 # ops-todo
 
+A simple TODO app that supports setting a priority for each item built using Vue.js 3.0.
+
+The application can be previewed [HERE](https://ops-todo.netlify.app/)
+
 ## Project setup
 ```
 npm install
@@ -24,6 +28,3 @@ npm run test:unit
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

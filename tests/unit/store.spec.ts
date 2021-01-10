@@ -4,31 +4,30 @@ describe('store.ts', () => {
   store.resetState()
 
   function assertState (usedPriorities: number[], unusedPriorities: number[], nextPriority: number) {
-    expect(store.state.value.items.map( i => i.priority )).toEqual(usedPriorities)
+    expect(store.state.value.items.map(i => i.priority)).toEqual(usedPriorities)
     expect(store.state.value.unusedPriorities).toEqual(unusedPriorities)
     expect(store.state.value.nextPriority).toBe(nextPriority)
   }
 
-  function assertItemValues(values: string[]) {
-    expect(store.state.value.items.map( i => i.value )).toEqual(values)
+  function assertItemValues (values: string[]) {
+    expect(store.state.value.items.map(i => i.value)).toEqual(values)
   }
 
   test('addNewItem', () => {
     assertState([], [], 1)
-    
-    store.addNewItem(1, "one")
+
+    store.addNewItem(1, 'one')
     assertState([1], [], 2)
-    
-    store.addNewItem(2, "two")
+
+    store.addNewItem(2, 'two')
     assertState([1, 2], [], 3)
 
-    store.addNewItem(5, "five")
+    store.addNewItem(5, 'five')
     assertState([1, 2, 5], [3, 4], 6)
 
-    store.addNewItem(7, "seven")
+    store.addNewItem(7, 'seven')
     assertState([1, 2, 5, 7], [3, 4, 6], 8)
   })
-
 
   test('updateItemPriority', () => {
     assertState([1, 2, 5, 7], [3, 4, 6], 8)
@@ -68,5 +67,4 @@ describe('store.ts', () => {
     store.deleteItem(9)
     assertState([5], [1, 2, 3, 4], 6)
   })
-
 })
